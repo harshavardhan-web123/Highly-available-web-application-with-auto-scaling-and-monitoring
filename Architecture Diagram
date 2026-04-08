@@ -1,0 +1,40 @@
+                     Users (Browser)
+                            │
+                            ▼
+                Application Load Balancer
+                            │
+            ┌───────────────┼───────────────┐
+            ▼               ▼               ▼
+      EC2 Instance     EC2 Instance     EC2 Instance
+        (Web App)        (Web App)        (Web App)
+            │               │               │
+            └─────── Auto Scaling Group ────┘
+                            │
+                            ▼
+                    Launch Template
+                            │
+                            ▼
+                           AMI
+                            │
+                            ▼
+                    Base EC2 Instance
+                            │
+                            ▼
+                GitHub (Application Code)
+
+------------------------------------------------------
+
+          Monitoring & Alerts Section
+                            │
+                            ▼
+                     CloudWatch
+                            │
+             ┌──────────────┼──────────────┐
+             ▼                             ▼
+        CPU Metrics                    Alarms
+                                           │
+                                           ▼
+                                           SNS
+                                           │
+                                           ▼
+                                       Email Alerts
