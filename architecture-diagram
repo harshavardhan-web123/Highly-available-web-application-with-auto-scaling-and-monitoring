@@ -1,0 +1,47 @@
+🔷 Explanation of Architecture
+🔹 1. Users
+End users access the application through a browser.
+Requests are sent to the Load Balancer.
+🔹 2. Application Load Balancer
+Distributes incoming traffic across multiple EC2 instances.
+Ensures high availability and fault tolerance.
+🔹 3. EC2 Instances (Web Servers)
+Run Apache/Nginx web server.
+Host your application.
+Instances are created dynamically using Auto Scaling.
+🔹 4. Auto Scaling Group
+Maintains minimum and maximum number of instances (2–4).
+Automatically:
+Adds instances when load increases
+Removes instances when load decreases
+🔹 5. Launch Template
+Defines configuration for new instances:
+AMI
+Instance type
+Security group
+🔹 6. AMI (Amazon Machine Image)
+Pre-configured image of your application server.
+Used to launch identical EC2 instances.
+🔹 7. Base EC2 Instance
+Initial server where:
+Apache installed
+App deployed
+Used to create AMI
+🔹 8. GitHub
+Stores your application code
+Code is cloned into EC2 instance
+🔷 Monitoring Section
+🔹 9. CloudWatch
+Monitors system performance (CPU usage)
+Collects metrics from EC2 instances
+🔹 10. CloudWatch Alarms
+Triggered when CPU crosses threshold
+Example:
+CPU > 70% → Scale Out
+CPU < 30% → Scale In
+🔹 11. SNS (Simple Notification Service)
+Sends alerts when alarms trigger
+🔹 12. Email Notifications
+You receive alerts about:
+High CPU usage
+Scaling events
