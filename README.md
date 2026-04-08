@@ -127,4 +127,7 @@ Implement Kubernetes (EKS)
 Add HTTPS with SSL certificate
 Integrate monitoring dashboards (Grafana)
 
-## 🏗️ Architecture Diagram
+👨‍💻 Author
+
+Harshavardhan
+BCA Student | Aspiring Cloud & DevOps Engineer
